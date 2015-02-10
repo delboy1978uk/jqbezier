@@ -46,9 +46,9 @@
       </div>
   </div>
   <script>
-     function drawConnectors(){
+     function drawConnectors(parent_class){
 
-	  $(".supply").each(function(){
+	  $(parent_class).each(function(){
 	    var theID = this.id;
 	    $("."+theID).each(function(i,e){
 	      var rand = Math.random() * 0.7 + 0.3;
@@ -64,9 +64,8 @@
 	  drawConnectors();
 	});
     
-	Bezier.init({strokeWidth: 1});
-	Bezier.set('strokeColor', '#999');
-	drawConnectors();      
+	Bezier.init({strokeWidth: 1, strokeColor: '#999'});
+	drawConnectors('.supply');      
   </script>
 </body>
 </html>
