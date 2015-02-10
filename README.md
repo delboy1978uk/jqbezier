@@ -5,7 +5,9 @@ Thanks to some random dude's javascript on jsFiddle, I've tidied it up and made 
 Markup
 ======
 Give parent elements an ID and a classname. Give child elements a class naming each ID of the parent. Ie, if your child has parents with ID's box15 and box7, then the child element should have:
-`<div class="box15 box7">blah</div>`. 
+```html
+<div class="box15 box7">blah</div>
+``` 
 Usage
 =====
 ```javascript
