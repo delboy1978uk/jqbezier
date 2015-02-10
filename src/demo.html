@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>  
+  <script src="bezier.js" type="text/javascript"></script>  
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+    .box
+	{
+	  margin: 10px;
+	  background-color: yellow;
+	  width: 100px;
+	  padding: 10px;
+	  text-align: center;
+	  font-weight: bold;
+	  border: 2px solid black;
+	}
+	.box-blue
+	{
+	   background-color: #0000AA;
+	   color: white;
+	}
+	.box-red
+	{
+	   background-color: #AA0000;
+	   color: white;
+	}
+  </style>
+</head>
+<body>
+  <div class="container">
+      <div class="row">
+         <div class="col-sm-3 pull-left">
+           <div id="s1" class="supply box">Supply 1</div>
+           <div id="s2" class="supply box">Supply 2</div>
+           <div id="s3" class="supply box">Supply 3</div>
+         </div>
+         <div class="col-sm-1 pull-left">
+           <div class="consumer box box-blue s1 s2">Building 1</div>
+           <div class="consumer box box-blue s2">Building 2</div>
+           <div class="consumer box box-red s3 s1">Process 1</div>
+         </div>
+      </div>
+  </div>
+  <script>
+     function drawConnectors(){
+
+	  $(".supply").each(function(){
+	    var theID = this.id;
+	    $("."+theID).each(function(i,e){
+	      var rand = Math.random() * 0.7 + 0.3;
+	      Bezier.set('animationDuration', rand);
+	      Bezier.on($("#"+theID), e);
+	    });
+	  });
+	}
+    
+	// redraw if window is resized
+	$(window).resize(function(){
+	  Bezier.off();
+	  drawConnectors();
+	});
+    
+	Bezier.init({strokeWidth: 1});
+	Bezier.set('strokeColor', '#999');
+	drawConnectors();      
+  </script>
+</body>
+</html>
