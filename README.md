@@ -15,5 +15,5 @@ $('.parent-class').bezier({options});
 ```
 Demo
 ====
-See <a href="http://jsbin.com/gadulaxuhu/1/" target="_new">HERE</a> for a live preview.
+See <a href="http://jsbin.com/celocojubi/1/" target="_new">HERE</a> for a live preview.
 
