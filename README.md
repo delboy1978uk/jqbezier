@@ -8,7 +8,9 @@ Give parent elements an ID and a classname. Give child elements a class naming e
 <br />
 Usage
 =====
+```
 $('.parent-class').bezier({options});
+```
 Demo
 ====
-See <a href="http://www.disney.com" target="_new">HERE</a> for a live preview.
+See <a href="http://jsbin.com/nivumoneno/1/" target="_new">HERE</a> for a live preview.
