@@ -39,33 +39,14 @@
            <div id="s3" class="supply box">Supply 3</div>
          </div>
          <div class="col-sm-1 pull-left">
-           <div class="consumer box box-blue s1 s2">Building 1</div>
-           <div class="consumer box box-blue s2">Building 2</div>
-           <div class="consumer box box-red s3 s1">Process 1</div>
+           <div class="box box-blue s1 s2">Building 1</div>
+           <div class="box box-blue s2">Building 2</div>
+           <div class="box box-red s3 s1">Process 1</div>
          </div>
       </div>
   </div>
   <script>
-     function drawConnectors(parent_class){
-
-	  $(parent_class).each(function(){
-	    var theID = this.id;
-	    $("."+theID).each(function(i,e){
-	      var rand = Math.random() * 0.7 + 0.3;
-	      Bezier.set('animationDuration', rand);
-	      Bezier.on($("#"+theID), e);
-	    });
-	  });
-	}
-    
-	// redraw if window is resized
-	$(window).resize(function(){
-	  Bezier.off();
-	  drawConnectors();
-	});
-    
-	Bezier.init({strokeWidth: 1, strokeColor: '#999'});
-	drawConnectors('.supply');      
+	$('.supply').bezier({strokeWidth: 1});    
   </script>
 </body>
 </html>
