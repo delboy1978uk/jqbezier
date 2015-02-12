@@ -26,5 +26,5 @@ animationDuration : 0.75
 ```
 Demo
 ====
-See <a href="http://jsbin.com/celocojubi/1/" target="_new">HERE</a> for a live preview.
+See <a href="http://jsbin.com/judodo/1/" target="_new">HERE</a> for a live preview.
 
