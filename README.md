@@ -13,6 +13,17 @@ Usage
 ```javascript
 $('.parent-class').bezier({options});
 ```
+Default Options
+=======
+```javascript
+strokeColor : '#999',  // use 'rainbow' for different coloured lines
+strokeWidth : 2,
+opacity : 1,
+fill : 'none',
+animate : true,
+animationDirection : 'right',
+animationDuration : 0.75
+```
 Demo
 ====
 See <a href="http://jsbin.com/celocojubi/1/" target="_new">HERE</a> for a live preview.

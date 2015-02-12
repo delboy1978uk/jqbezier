@@ -12,6 +12,35 @@
 				animationDuration : 0.75
 			};
 			
+			
+			// Color wheel stuff
+			var color_wheel = [];
+			var frequency = .3;
+            for (var i = 0; i < 32; ++i)
+            {
+               red   = Math.sin(frequency*i + 0) * 127 + 128;
+               green = Math.sin(frequency*i + (2*Math.PI/3)) * 127 + 128;
+               blue  = Math.sin(frequency*i + (4*Math.PI/3)) * 127 + 128;
+            
+               color_wheel.push(RGB2Color(red,green,blue));
+            }
+            var color_index = 0;
+            
+              function RGB2Color(r,g,b)
+	          {
+	            return '#' + byte2Hex(r) + byte2Hex(g) + byte2Hex(b);
+	          }
+	          
+	          
+	    	  function byte2Hex(n)
+	          {
+	            var nybHexString = "0123456789ABCDEF";
+	            return String(nybHexString.substr((n >> 4) & 0x0F,1)) + nybHexString.substr(n & 0x0F,1);
+	          }
+	          // Color wheel stuff  
+            
+            
+			
 			//override default options with user set options
 			var settings = $.extend(defaults, options);
 			
@@ -70,8 +99,15 @@
 	
 					var svgnode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 					var newpath = document.createElementNS('http://www.w3.org/2000/svg', "path");
+					
+					var color_to_use = (settings.strokeColor != 'rainbow') ? settings.strokeColor : color_wheel[color_index];
+					color_index = color_index + 1;
+					if (color_index == 32)
+					{
+						color_index = 0;
+					}
 					newpath.setAttributeNS(null, "d", p);
-					newpath.setAttributeNS(null, "stroke", settings.strokeColor);
+					newpath.setAttributeNS(null, "stroke", color_to_use);
 					newpath.setAttributeNS(null, "stroke-width", settings.strokeWidth);
 					newpath.setAttributeNS(null, "opacity", settings.opacity);
 					newpath.setAttributeNS(null, "fill", settings.fill);
